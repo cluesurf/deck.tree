@@ -7,12 +7,12 @@
 <br/>
 
 <p align='center'>
-  <img src='https://github.com/termsurf/seed.note/blob/make/view/seed.svg?raw=true' width='192'>
+  <img src='https://github.com/termsurf/bead.note/blob/make/view/seed.svg?raw=true' width='192'>
 </p>
 
-<h3 align='center'>@termsurf/seed</h3>
+<h3 align='center'>@termsurf/bead</h3>
 <p align='center'>
-  The BaseNote Package Manager
+  The SeedLeaf Package Manager
 </p>
 
 <br/>
