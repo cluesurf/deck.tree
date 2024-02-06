@@ -7,7 +7,7 @@
 <br/>
 
 <p align='center'>
-  <img src='https://github.com/termsurf/bead.note/blob/make/view/seed.svg?raw=true' width='192'>
+  <img src='https://github.com/termsurf/bead.note/blob/make/view/bead.svg?raw=true' width='192'>
 </p>
 
 <h3 align='center'>@termsurf/bead</h3>
