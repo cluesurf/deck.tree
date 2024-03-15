@@ -7,12 +7,12 @@
 <br/>
 
 <p align='center'>
-  <img src='https://github.com/termsurf/bead.leaf/blob/make/view/bead.svg?raw=true' width='192'>
+  <img src='https://github.com/termsurf/bead.star/blob/make/view/bead.svg?raw=true' width='192'>
 </p>
 
-<h3 align='center'>bead.leaf</h3>
+<h3 align='center'>bead.star</h3>
 <p align='center'>
-  The SeedLeaf Package Manager
+  The Star Package Manager
 </p>
 
 <br/>
