@@ -12,12 +12,133 @@
 
 <h3 align='center'>bead.tree</h3>
 <p align='center'>
-  The Star Package Manager
+  The BaseTree Package Manager
 </p>
 
 <br/>
 <br/>
 <br/>
+
+## Theory
+
+### Goals
+
+Should be able to:
+
+- Link packages globally for sharing between projects during
+  development.
+
+### Storage
+
+When you install packages, it hard symlinks them from your
+`~/Library/base` folder to your `./link` folder.
+
+```
+~/Library/base/v000
+  # global dependencies
+  /hook
+    /deck
+      /<host+deck>
+        /...files
+        /link
+          /base.js
+          /package.json
+  # shared dependencies
+  /deck
+    /<host+deck>
+      /...files
+      /link
+        /base.js
+        /package.json
+  /file # file store
+    /<hash-code>
+      /<hash>.{js,tree}
+```
+
+```
+./link
+  /:host
+    /:deck
+      /:mark
+```
+
+Then, `/:host/:deck/:mark` is hard linked from:
+
+```
+~/Library/base/deck/:host+deck
+```
+
+And inside `~/Library/base/deck/*`, the files are hard linked to
+`~/Library/base/file/:code/:hash`.
+
+When you `base link <deck>`, it symlinks from the symlink inside of
+`~/Library/base/deck/*`.
+
+This handles:
+
+- Globally installed decks go into `hook/link`.
+- The rest of the installed decks get shared in `link`.
+
+#### Using `package.json`
+
+It installs them from any available NPM compatible hosting service, like
+npmjs.org or github.com.
+
+Here is the `package.json` that gets generated for the package.
+
+```json
+{
+  "name": "@termsurf/base.tree",
+  "base": true,
+  "version": "0.0.1"
+}
+```
+
+It simply uses the NPM ecosystem as a generic package hosting system.
+
+#### Package size
+
+Max package size is **8mb**. This is basically the same as what NPM
+enforces (they say they support 20mb, but people have encountered errors
+publishing 10mb packages, so we choose 8mb).
+
+### Searching
+
+When it searches for files, it assumes the `CWD` is the deck base
+folder, and so looks for the `./base.tree` file for that deck. It then
+uses this information to determine the `role` of each nested file. Some
+nested folders can also be nested decks, so those are determined too at
+this point.
+
+It then looks for the `link/lock.tree` file to make sure it is a folder
+which contains installed decks. The `link` folder can be customized
+using the `hold link` tree code.
+
+```
+/something/deeply/nested.tree
+/something/deeply/nested/base.tree
+```
+
+### Lockfile
+
+```
+base <0.0.1>
+
+load @termsurf/moon
+  mark <*>
+  lock <0.0.1>
+load @termsurf/bolt
+  mark <*>
+  lock <0.0.1>
+load @termsurf/wolf
+  mark <*>
+  lock <0.0.1>
+
+link <@termsurf/wolf:0.0.1>
+  hash <sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==>
+  load @termsurf/bolt
+    mark <0.0.1>
+```
 
 ## License
 
