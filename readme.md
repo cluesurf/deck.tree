@@ -19,6 +19,14 @@
 <br/>
 <br/>
 
+## Usage
+
+This library is used internally by the
+[compiler for BaseTree](https://github.com/termsurf/chew.tree), where it
+finds the files that are referenced. It is also used by
+[base](https://github.com/termsurf/base) itself, to fetch the files when
+installing.
+
 ## Theory
 
 ### Goals
@@ -27,6 +35,81 @@ Should be able to:
 
 - Link packages globally for sharing between projects during
   development.
+
+### Specification
+
+```tree
+deck @termsurf/base
+  head <A TreeCode Framework>
+
+  mark <0.0.1>
+  sort tool
+
+  lock apache-2
+
+  site <https://github.com/termsurf/base>
+  view ./view/tree.gif
+
+  term tree-code
+  term computation
+  term information
+  term philosophy
+  term platform
+  term white-label
+  term compiler
+
+  deck ./deck/load
+  deck ./deck/line
+
+  # defaults to https://registry.npmjs.org registry
+  link @termsurf/bolt, mark <0.0.x>
+  link @termsurf/bind, mark <0.0.x>
+  link @termsurf/moon, mark <0.0.x>
+  link @termsurf/bead, mark <0.0.x>
+  link @termsurf/chew, mark <0.0.x>
+  link @termsurf/move, mark <0.0.x>
+
+  # use a custom registry
+  host <https://npm.pkg.github.com>
+    link @termsurf/seal, mark <0.0.x>
+    link @termsurf/cone, mark <0.0.x>
+    link @termsurf/buzz, mark <0.0.x>
+    link @termsurf/crow, mark <0.0.x>
+
+  task ./task # the task loader
+  read ./book # also a default
+  role ./role # also a default
+  line ./line
+  test ./test
+
+  mind <Lance Pollard>, site <lp@elk.fm>
+```
+
+### Fetching
+
+Get the package metadata here:
+
+```
+https://registry.npmjs.org/lodash/4.17.21
+https://registry.npmjs.org/@termsurf/tree/1.1.0
+```
+
+Get the `.tgz` zip file of the NPM package here:
+
+```
+https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz
+https://registry.npmjs.org/@termsurf/tree/-/tree-1.1.0.tgz
+```
+
+```bash
+shasum lodash-4.17.21.tgz === metadata.dist.shasum
+```
+
+To login to the GitHub registry, this is how it looks:
+
+```bash
+npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://npm.pkg.github.com
+```
 
 ### Storage
 
@@ -121,7 +204,9 @@ using the `hold link` tree code.
 
 ### Lockfile
 
-```
+This is saved as `link/lock.tree`:
+
+```tree
 base <0.0.1>
 
 load @termsurf/moon
@@ -138,6 +223,16 @@ link <@termsurf/wolf:0.0.1>
   hash <sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==>
   load @termsurf/bolt
     mark <0.0.1>
+```
+
+### Linkfile
+
+This is saved as `link/base.tree`
+
+```tree
+# says which ones are symlinks
+link <@termsurf/wolf:0.0.1>
+link <@termsurf/bind:0.0.1>
 ```
 
 ## License
