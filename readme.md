@@ -6,13 +6,9 @@
 <br/>
 <br/>
 
+<h3 align='center'>deck.tree</h3>
 <p align='center'>
-  <img src='https://github.com/termsurf/bead.tree/blob/make/view/bead.svg?raw=true' width='192'>
-</p>
-
-<h3 align='center'>bead.tree</h3>
-<p align='center'>
-  The BaseTree Package Manager
+  The NoteTree Package Manager
 </p>
 
 <br/>
@@ -22,19 +18,16 @@
 ## Usage
 
 This library is used internally by the
-[compiler for BaseTree](https://github.com/termsurf/chew.tree), where it
+[compiler for NoteTree](https://github.com/termsurf/mesh.tree), where it
 finds the files that are referenced. It is also used by
 [base](https://github.com/termsurf/base) itself, to fetch the files when
 installing.
 
 ## Theory
 
-### Goals
-
-Should be able to:
-
-- Link packages globally for sharing between projects during
-  development.
+It is built upon
+[`@termsurf/deck`](https://github.com/termsurf/deck.js), which aims to
+be a language-agnostic package manager in the long run.
 
 ### Specification
 
@@ -62,12 +55,12 @@ deck @termsurf/base
   deck ./deck/line
 
   # defaults to https://registry.npmjs.org registry
-  link @termsurf/bolt, mark <0.0.x>
   link @termsurf/bind, mark <0.0.x>
   link @termsurf/moon, mark <0.0.x>
   link @termsurf/bead, mark <0.0.x>
   link @termsurf/chew, mark <0.0.x>
   link @termsurf/move, mark <0.0.x>
+  link @termsurf/base, site <git://github.com/user/project.git#commit-ish>
 
   # use a custom registry
   host <https://npm.pkg.github.com>
@@ -171,7 +164,7 @@ Here is the `package.json` that gets generated for the package.
 
 ```json
 {
-  "name": "@termsurf/base.tree",
+  "name": "@termsurf/base",
   "base": true,
   "version": "0.0.1"
 }
@@ -181,9 +174,13 @@ It simply uses the NPM ecosystem as a generic package hosting system.
 
 #### Package size
 
-Max package size is **8mb**. This is basically the same as what NPM
-enforces (they say they support 20mb, but people have encountered errors
-publishing 10mb packages, so we choose 8mb).
+Max package size is **8mb**, for packages published to NPM. This is
+basically the same as what NPM enforces (they say they support 20mb, but
+people have encountered errors publishing 10mb packages, so we choose
+8mb).
+
+Repos though, can be up to 1GB in size, and you can download these
+through the `site <git://...>` directive.
 
 ### Searching
 
@@ -212,7 +209,7 @@ base <0.0.1>
 load @termsurf/moon
   mark <*>
   lock <0.0.1>
-load @termsurf/bolt
+load @termsurf/base
   mark <*>
   lock <0.0.1>
 load @termsurf/wolf
@@ -221,7 +218,7 @@ load @termsurf/wolf
 
 link <@termsurf/wolf:0.0.1>
   hash <sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==>
-  load @termsurf/bolt
+  load @termsurf/base
     mark <0.0.1>
 ```
 
