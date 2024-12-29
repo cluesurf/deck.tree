@@ -8,7 +8,7 @@
 
 <h3 align='center'>deck.tree</h3>
 <p align='center'>
-  The NoteTree Package Manager
+  The TextTree Package Manager
 </p>
 
 <br/>
@@ -18,21 +18,21 @@
 ## Usage
 
 This library is used internally by the
-[compiler for NoteTree](https://github.com/termsurf/mesh.tree), where it
+[compiler for TextTree](https://github.com/cluesurf/mesh.tree), where it
 finds the files that are referenced. It is also used by
-[base](https://github.com/termsurf/base) itself, to fetch the files when
+[base](https://github.com/cluesurf/base) itself, to fetch the files when
 installing.
 
 ## Theory
 
 It is built upon
-[`@termsurf/deck`](https://github.com/termsurf/deck.js), which aims to
+[`@cluesurf/deck`](https://github.com/cluesurf/deck.js), which aims to
 be a language-agnostic package manager in the long run.
 
 ### Specification
 
 ```tree
-deck @termsurf/base
+deck @cluesurf/base
   head <A TreeCode Framework>
 
   mark <0.0.1>
@@ -40,7 +40,7 @@ deck @termsurf/base
 
   lock apache-2
 
-  site <https://github.com/termsurf/base>
+  site <https://github.com/cluesurf/base>
   view ./view/tree.gif
 
   term tree-code
@@ -55,19 +55,19 @@ deck @termsurf/base
   deck ./deck/line
 
   # defaults to https://registry.npmjs.org registry
-  link @termsurf/bind, mark <0.0.x>
-  link @termsurf/moon, mark <0.0.x>
-  link @termsurf/bead, mark <0.0.x>
-  link @termsurf/chew, mark <0.0.x>
-  link @termsurf/move, mark <0.0.x>
-  link @termsurf/base, site <git://github.com/user/project.git#commit-ish>
+  link @cluesurf/bind, mark <0.0.x>
+  link @cluesurf/moon, mark <0.0.x>
+  link @cluesurf/bead, mark <0.0.x>
+  link @cluesurf/chew, mark <0.0.x>
+  link @cluesurf/move, mark <0.0.x>
+  link @cluesurf/base, site <git://github.com/user/project.git#commit-ish>
 
   # use a custom registry
   host <https://npm.pkg.github.com>
-    link @termsurf/seal, mark <0.0.x>
-    link @termsurf/cone, mark <0.0.x>
-    link @termsurf/buzz, mark <0.0.x>
-    link @termsurf/crow, mark <0.0.x>
+    link @cluesurf/seal, mark <0.0.x>
+    link @cluesurf/cone, mark <0.0.x>
+    link @cluesurf/buzz, mark <0.0.x>
+    link @cluesurf/crow, mark <0.0.x>
 
   task ./task # the task loader
   read ./book # also a default
@@ -84,14 +84,14 @@ Get the package metadata here:
 
 ```
 https://registry.npmjs.org/lodash/4.17.21
-https://registry.npmjs.org/@termsurf/tree/1.1.0
+https://registry.npmjs.org/@cluesurf/tree/1.1.0
 ```
 
 Get the `.tgz` zip file of the NPM package here:
 
 ```
 https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz
-https://registry.npmjs.org/@termsurf/tree/-/tree-1.1.0.tgz
+https://registry.npmjs.org/@cluesurf/tree/-/tree-1.1.0.tgz
 ```
 
 ```bash
@@ -164,7 +164,7 @@ Here is the `package.json` that gets generated for the package.
 
 ```json
 {
-  "name": "@termsurf/base",
+  "name": "@cluesurf/base",
   "base": true,
   "version": "0.0.1"
 }
@@ -206,19 +206,19 @@ This is saved as `link/lock.tree`:
 ```tree
 base <0.0.1>
 
-load @termsurf/moon
+load @cluesurf/moon
   mark <*>
   lock <0.0.1>
-load @termsurf/base
+load @cluesurf/base
   mark <*>
   lock <0.0.1>
-load @termsurf/wolf
+load @cluesurf/wolf
   mark <*>
   lock <0.0.1>
 
-link <@termsurf/wolf:0.0.1>
+link <@cluesurf/wolf:0.0.1>
   hash <sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==>
-  load @termsurf/base
+  load @cluesurf/base
     mark <0.0.1>
 ```
 
@@ -228,13 +228,13 @@ This is saved as `link/base.tree`
 
 ```tree
 # says which ones are symlinks
-link <@termsurf/wolf:0.0.1>
-link <@termsurf/bind:0.0.1>
+link <@cluesurf/wolf:0.0.1>
+link <@cluesurf/bind:0.0.1>
 ```
 
 ## License
 
-Copyright 2023 <a href='https://term.surf'>TermSurf</a>
+Copyright 2023 <a href='https://clue.surf'>ClueSurf</a>
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may
 not use this file except in compliance with the License. You may obtain
@@ -248,17 +248,17 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-## TermSurf
+## ClueSurf
 
-This is being developed by the folks at [TermSurf](https://term.surf), a
+This is being developed by the folks at [ClueSurf](https://clue.surf), a
 California-based project for helping humanity master information and
-computation. TermSurf started off in the winter of 2008 as a spark of an
+computation. ClueSurf started off in the winter of 2008 as a spark of an
 idea, to forming a company 10 years later in the winter of 2018, to a
 seed of a project just beginning its development phases. It is entirely
 bootstrapped by working full time and running
-[Etsy](https://etsy.com/shop/termsurf) and
+[Etsy](https://etsy.com/shop/cluesurf) and
 [Amazon](https://www.amazon.com/s?rh=p_27%3AMount+Build) shops. Also
-find us on [Facebook](https://www.facebook.com/termsurf),
-[Twitter](https://twitter.com/termsurf), and
-[LinkedIn](https://www.linkedin.com/company/termsurf). Check out our
+find us on [Facebook](https://www.facebook.com/cluesurf),
+[Twitter](https://twitter.com/cluesurf), and
+[LinkedIn](https://www.linkedin.com/company/cluesurf). Check out our
 other GitHub projects as well!
