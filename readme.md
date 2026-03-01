@@ -242,15 +242,11 @@ limitations under the License.
 
 ## ClueSurf
 
-This is being developed by the folks at [ClueSurf](https://clue.surf), a
-California-based project for helping humanity master information and
-computation. ClueSurf started off in the winter of 2008 as a spark of an
-idea, to forming a company 10 years later in the winter of 2018, to a
-seed of a project just beginning its development phases. It is entirely
-bootstrapped by working full time and running
-[Etsy](https://etsy.com/shop/cluesurf) and
-[Amazon](https://www.amazon.com/s?rh=p_27%3AMount+Build) shops. Also
-find us on [Facebook](https://www.facebook.com/cluesurf),
-[Twitter](https://twitter.com/cluesurf), and
-[LinkedIn](https://www.linkedin.com/company/cluesurf). Check out our
-other GitHub projects as well!
+Made by [ClueSurf](https://clue.surf), meditating on the universe ¤.
+Follow the work on [YouTube](https://youtube.com/@cluesurf),
+[X](https://x.com/cluesurf),
+[Instagram](https://instagram.com/cluesurf),
+[Substack](https://cluesurf.substack.com),
+[Facebook](https://facebook.com/cluesurf), and
+[LinkedIn](https://linkedin.com/company/cluesurf), and browse more of
+our open-source work here on [GitHub](https://github.com/cluesurf).
