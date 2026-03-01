@@ -1,7 +1,7 @@
 import fsp from 'fs/promises'
 
-import makeTree, { Tree } from '@termsurf/tree'
-import { KinkList } from '@termsurf/kink'
+import makeTree, { Tree } from '@cluesurf/tree'
+import { KinkList } from '@cluesurf/kink'
 
 import { CardForm, TakeCardForm } from './form'
 
