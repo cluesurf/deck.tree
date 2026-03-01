@@ -8,20 +8,12 @@
 
 <h3 align='center'>deck.tree</h3>
 <p align='center'>
-  The TreeCode Package Manager
+  The TermTree Package Manager
 </p>
 
 <br/>
 <br/>
 <br/>
-
-## Usage
-
-This library is used internally by the
-[compiler for TreeCode](https://github.com/cluesurf/mesh.tree), where it
-finds the files that are referenced. It is also used by
-[base](https://github.com/cluesurf/base) itself, to fetch the files when
-installing.
 
 ## Theory
 
