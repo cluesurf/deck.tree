@@ -1,2 +1,4 @@
-host
-!test/host
+/make
+!/make/.eslintrc.json
+/hold
+/host
