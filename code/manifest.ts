@@ -3,7 +3,7 @@ import path from 'path'
 import {
   DeckManifest,
   DeckLink,
-  DeckFace,
+  DeckMind,
   MarkHold,
 } from './form'
 import { parseMark, parseMarkHold, showMark } from './mark'
@@ -22,9 +22,10 @@ export function parseManifest(input: { text: string }): DeckManifest {
   let name = ''
   let mark = { major: 0, minor: 0, patch: 0 }
   let head: string | undefined
-  const face: Array<DeckFace> = []
+  const mind: Array<DeckMind> = []
   let lock: string | undefined
   let sort: string | undefined
+  const term: Array<string> = []
   const link: Array<DeckLink> = []
   const hook: Record<string, string> = {}
 
@@ -58,8 +59,8 @@ export function parseManifest(input: { text: string }): DeckManifest {
       continue
     }
 
-    if (line.startsWith('face ')) {
-      face.push({ name: extractAngle(line.slice(5).trim()) })
+    if (line.startsWith('mind ')) {
+      mind.push({ name: extractAngle(line.slice(5).trim()) })
       continue
     }
 
@@ -69,7 +70,12 @@ export function parseManifest(input: { text: string }): DeckManifest {
     }
 
     if (line.startsWith('sort ')) {
-      sort = line.slice(5).trim()
+      sort = extractAngle(line.slice(5).trim())
+      continue
+    }
+
+    if (line.startsWith('term ')) {
+      term.push(extractAngle(line.slice(5).trim()))
       continue
     }
 
@@ -102,9 +108,10 @@ export function parseManifest(input: { text: string }): DeckManifest {
     name,
     mark,
     head,
-    face: face.length > 0 ? face : undefined,
+    mind: mind.length > 0 ? mind : undefined,
     lock,
     sort,
+    term: term.length > 0 ? term : undefined,
     link,
     hook: Object.keys(hook).length > 0 ? hook : undefined,
   }
@@ -160,9 +167,9 @@ export function writeManifest(input: {
     lines.push(`  head <${m.head}>`)
   }
 
-  if (m.face) {
-    for (const f of m.face) {
-      lines.push(`  face <${f.name}>`)
+  if (m.mind) {
+    for (const f of m.mind) {
+      lines.push(`  mind <${f.name}>`)
     }
   }
 
@@ -171,7 +178,13 @@ export function writeManifest(input: {
   }
 
   if (m.sort) {
-    lines.push(`  sort ${m.sort}`)
+    lines.push(`  sort <${m.sort}>`)
+  }
+
+  if (m.term) {
+    for (const t of m.term) {
+      lines.push(`  term <${t}>`)
+    }
   }
 
   for (const dep of m.link) {

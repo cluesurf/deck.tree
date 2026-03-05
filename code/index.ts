@@ -19,7 +19,7 @@ export type {
   MarkTest,
   DeckManifest,
   DeckLink,
-  DeckFace,
+  DeckMind,
   ResolvedDeck,
   ResolutionMap,
   LockEntry,

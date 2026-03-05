@@ -25,7 +25,7 @@ export type MarkTest = {
 
 export type MarkHold = MarkBand | MarkWild | MarkTest | { form: 'exact'; mark: Mark }
 
-export type DeckFace = {
+export type DeckMind = {
   name: string
   site?: string
 }
@@ -41,9 +41,10 @@ export type DeckManifest = {
   name: string
   mark: Mark
   head?: string
-  face?: Array<DeckFace>
+  mind?: Array<DeckMind>
   lock?: string
   sort?: string
+  term?: Array<string>
   link: Array<DeckLink>
   hook?: Record<string, string>
 }

@@ -7,9 +7,9 @@ describe('parseManifest', () => {
 deck @cluesurf/my-app
   mark <1.0.0>
   head <My cool app>
-  face <Lance Pollard>
+  mind <Lance Pollard>
   lock apache-2
-  sort tool
+  term <tool>
   link @cluesurf/seed, mark <1.x.x>
   link @cluesurf/tree, mark <2.1.0>
 `
@@ -20,8 +20,8 @@ deck @cluesurf/my-app
     expect(manifest.mark).toEqual({ major: 1, minor: 0, patch: 0 })
     expect(manifest.head).toBe('My cool app')
     expect(manifest.lock).toBe('apache-2')
-    expect(manifest.sort).toBe('tool')
-    expect(manifest.face).toEqual([{ name: 'Lance Pollard' }])
+    expect(manifest.term).toEqual(['tool'])
+    expect(manifest.mind).toEqual([{ name: 'Lance Pollard' }])
     expect(manifest.link).toHaveLength(2)
     expect(manifest.link[0]!.name).toBe('@cluesurf/seed')
     expect(manifest.link[0]!.mark).toEqual({
