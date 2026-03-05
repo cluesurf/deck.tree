@@ -8,7 +8,7 @@
 
 <h3 align='center'>deck.tree</h3>
 <p align='center'>
-  The TermTree Package Manager
+  The Seed Package Manager
 </p>
 
 <br/>
